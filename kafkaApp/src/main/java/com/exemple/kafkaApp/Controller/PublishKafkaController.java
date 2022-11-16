@@ -30,8 +30,6 @@ public class PublishKafkaController {
 	@PostMapping
 	public ResponseEntity<String> sendMessage(@RequestBody String body){
 		
-		logger.info("message received : " + body);
-		
 		publisher.publishMessage("testTopic_v1", body);
 		
 		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
